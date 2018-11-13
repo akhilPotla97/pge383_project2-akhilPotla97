@@ -1,7 +1,5 @@
 # Project 2
 
-[![Build Status](https://travis-ci.com/PGE383-HPC/project2.svg?token=SnMGq692xXXqxzyE6QSj&branch=master)](https://travis-ci.com/PGE383-HPC/project2)
-
 For this project, you'll modify the `LaplaceSolver` class from [Homework Assignment 10](https://github.com/PGE383-HPC-Fall2018/assignment10) to run in parallel with `mpi4py`.  In the file [project2.py](project2.py), you'll find a new class `LaplaceSolverMPI` that inherits from `LaplaceSolver`.  You need to complete the `solve()` and `get_solution()` functions.  
 
 The `solve()` function should partition and distribute the solution matrix `u` (by rows) as evenly as possible among the parallel ranks.  You will need to use `send()` and `recv()` calls to send the top/bottom rows from adjacent processors when needed to act as "boundary conditions" on the local (to processor) grid.  This is often referred to as "ghosting".  You should then be able to call the `iterate()` function from the `LaplaceSolver` class without modifications.
